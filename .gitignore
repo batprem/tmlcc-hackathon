@@ -76,7 +76,7 @@ docs/_build/
 target/
 
 # Jupyter Notebook
-.ipynb_checkpoints
+*.ipynb_checkpoints*
 
 # IPython
 profile_default/
@@ -141,3 +141,5 @@ cython_debug/
 # Dataset
 *.zip
 tmlcc-2021/*
+.deepnote/*
+*.pickle

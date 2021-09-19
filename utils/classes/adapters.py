@@ -4,8 +4,14 @@ from typing import List
 
 
 class CIF2PandasAdapter:
+    """
+    An adapter to convert CIF into Pandas DataFrames
+    """
     @staticmethod
-    def load_cif(cif_filepath: str):
+    def load_cif(cif_filepath: str) -> List[str]:
+        """
+        Read CIF file as String and split looping sections
+        """
         with open(cif_filepath) as f:
             filename = f.readline().strip()
             dataframes = []
@@ -27,20 +33,29 @@ class CIF2PandasAdapter:
 
     @staticmethod
     def get_metadata(dataframes: List[List[str]]) -> pd.DataFrame:
+        """
+        Get metadata of a CIF file
+        """
         return pd.DataFrame(dataframes[0])
 
     @staticmethod
     def get_loops(dataframes: List[List[str]]) -> List[pd.DataFrame]:
+        """
+        Get loops
+        """
         loops = []
         for dataframe in dataframes[1:]:
             loop = pd.DataFrame(dataframes[1])
             loop_fixed = loop[loop[1].notna()]
             loop_fixed.columns = loop[loop[1].isna()][0]
-            loops.append(loop_fixed)
+            loops.append(loop_fixed.to_dict())
 
         return loops
     
     def apply(self, cif_filepath: str) -> List[pd.DataFrame]:
+        """
+        Apply ETL pipeline
+        """
         # Extract
         cif_list = self.load_cif(cif_filepath)
 
@@ -50,6 +65,6 @@ class CIF2PandasAdapter:
 
         # Load
         return {
-            "metadata": metadata,
+            "metadata": metadata.to_dict(),
             "loops": extract_loops
         }
