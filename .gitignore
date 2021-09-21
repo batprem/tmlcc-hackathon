@@ -143,3 +143,4 @@ cython_debug/
 tmlcc-2021/*
 .deepnote/*
 *.pickle
+catboost_info/*
