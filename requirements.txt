@@ -1,3 +1,7 @@
 # pip==21.2.3
 gemmi==0.4.8
 pandas==1.2.5
+tqdm==4.62.2
+catboost
+catboost==0.26.1
+prefect[viz]

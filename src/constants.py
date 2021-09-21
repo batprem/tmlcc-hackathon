@@ -2,6 +2,8 @@ DATASET_PATH = "tmlcc-2021"
 CIF_TRAIN_PATH = f"{DATASET_PATH}/mof_cif_train"
 CIF_PRETEST_PATH = f"{DATASET_PATH}/mof_cif_pretest"
 
-PREPROCESSING_TRAIN_PATH = 'preprocessing_results/train'
-PREPROCESSING_PRETEST_PATH = 'preprocessing_results/pretest'
+PREPROCESSING_PATH = 'preprocessing_results'
+PREPROCESSING_TRAIN_PATH = f'{PREPROCESSING_PATH}/train'
+PREPROCESSING_PRETEST_PATH = f'{PREPROCESSING_PATH}/pretest'
 
+TARGET = 'CO2_working_capacity [mL/g]'

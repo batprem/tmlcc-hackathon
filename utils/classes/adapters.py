@@ -45,7 +45,7 @@ class CIF2PandasAdapter:
         """
         loops = []
         for dataframe in dataframes[1:]:
-            loop = pd.DataFrame(dataframes[1])
+            loop = pd.DataFrame(dataframe)
             loop_fixed = loop[loop[1].notna()]
             loop_fixed.columns = loop[loop[1].isna()][0]
             loops.append(loop_fixed.to_dict())
