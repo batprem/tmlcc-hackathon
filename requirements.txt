@@ -5,3 +5,6 @@ tqdm==4.62.2
 catboost
 catboost==0.26.1
 prefect[viz]
+ase==3.22.0
+lightgbm==3.2.1
+xgboost==1.4.2
